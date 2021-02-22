@@ -39,7 +39,7 @@ cd learning_management_system
 
 if [ -d "$CACHE_DIR/flutter" ]; then
   print "Restoring Flutter SDK from CACHE"
-  cp -R $CACHE_DIR/flutter $BUILD_DIR
+  cp -R $CACHE_DIR/flutter $BUILD_DIR/learning_management_system
 else
   print "Installing SDK from Github repository."
   git clone https://github.com/flutter/flutter.git --quiet
