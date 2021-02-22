@@ -93,9 +93,9 @@ mkdir -p $PUB_CACHE
 if [ -x flutter/bin/flutter ]; then
   print "Saving Flutter SDK in Cache"
   rm -rf $CACHE_DIR/flutter
-  cp -R $BUILD_DIR/flutter $CACHE_DIR/flutter
-  mv $BUILD_DIR/flutter/bin/cache/dart-sdk/ $BUILD_DIR
-  rm -rf $BUILD_DIR/flutter
+  cp -R $BUILD_DIR/learning_management_system/flutter $CACHE_DIR/flutter
+  mv $BUILD_DIR/learning_management_system/flutter/bin/cache/dart-sdk/ $BUILD_DIR/learning_management_system
+  rm -rf $BUILD_DIR/learning_management_system/flutter
 fi
 
 #  To read hidden directories and use move with exclusion.
@@ -104,11 +104,11 @@ shopt -s extglob
 # Check  FLUTTER_CLEANUP var to delete all files or keep it.
 if [ "$FLUTTER_CLEANUP" != false ]; then
 
-  mkdir -p $BUILD_DIR/TO_DELETE
+  mkdir -p $BUILD_DIR/learning_management_system/TO_DELETE
 
   mv !("TO_DELETE") TO_DELETE
-  mv TO_DELETE/build/web/* $BUILD_DIR
-  mv TO_DELETE/dart-sdk $BUILD_DIR
+  mv TO_DELETE/build/web/* $BUILD_DIR/learning_management_system
+  mv TO_DELETE/dart-sdk $BUILD_DIR/learning_management_system
   rm -rf TO_DELETE
 
 fi
@@ -131,7 +131,7 @@ fi
 
 # Moving to the build, after running the compile. All will be deleted and removed to app directory.
 # Copying the result, the files will be kept in storage.
-cp -R $PUB_CACHE $BUILD_DIR
+cp -R $PUB_CACHE $BUILD_DIR/learning_management_system
 
 export PATH="$PATH":"/app/dart-sdk/bin/"
 export PATH="$PATH":"/app/.pub-cache/bin"
